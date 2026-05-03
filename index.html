@@ -4,113 +4,347 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuoteClip — Support & Privacy</title>
+    <meta name="description" content="QuoteClip — find the YouTube clip your quote came from. Support and privacy policy.">
+
+    <!-- Caveat (hand-drawn wordmark), Supreme (body via Fontshare), JetBrains Mono (labels) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=supreme@300,400,500,700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
+        :root {
+            --ink:    #1a1a1a;
+            --paper:  #f6f2ea;
+            --line:   #2a2a2a;
+            --muted:  #6b6b6b;
+            --soft:   #d9d3c4;
+            --canvas: #efe9dc;
+            --accent: #d96a3a; /* warmOrange */
+            --accent-soft: #f3c8b3;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --ink:    #ece6d9;
+                --paper:  #1a1815;
+                --line:   #ece6d9;
+                --muted:  #8a857a;
+                --soft:   #2a2722;
+                --canvas: #14120f;
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            background: var(--canvas);
+            color: var(--ink);
+            font-family: 'Supreme', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 400;
+            line-height: 1.55;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            max-width: 720px;
             margin: 0 auto;
-            padding: 20px;
-            color: #333;
+            padding: 56px 28px 80px;
         }
-        h1 {
-            color: #2196F3;
-            border-bottom: 2px solid #2196F3;
-            padding-bottom: 10px;
+
+        /* ── Hero ───────────────────────────────────────────────── */
+        .hero {
+            margin-bottom: 48px;
         }
-        h2 {
-            color: #1976D2;
-            margin-top: 30px;
+        .wordmark-wrap {
+            display: inline-block;
+            position: relative;
+            padding-bottom: 12px;
         }
-        h3 {
-            color: #1976D2;
-            margin-top: 20px;
-            font-size: 1.05em;
+        .wordmark {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            font-size: clamp(72px, 16vw, 132px);
+            line-height: 0.9;
+            color: var(--ink);
+            margin: 0;
+            letter-spacing: -1px;
         }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 6px;
-        }
-        a {
-            color: #1976D2;
-        }
-        .contact {
-            background-color: #f5f5f5;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        .last-updated {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 30px;
+        .wordmark-squiggle {
+            position: absolute;
+            left: 4%;
+            right: 4%;
+            bottom: -4px;
+            height: 14px;
+            color: var(--accent);
         }
         .tagline {
-            font-size: 1.1em;
-            color: #555;
+            margin-top: 18px;
+            font-size: 17px;
+            color: var(--muted);
+            max-width: 540px;
+        }
+
+        /* ── Section labels (mirrors WFLabel) ──────────────────── */
+        .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            display: block;
+            margin: 0 0 10px;
+        }
+
+        section {
+            margin-top: 36px;
+        }
+        section h2 {
+            font-family: 'Supreme', sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+            line-height: 1.2;
+            margin: 0 0 12px;
+            color: var(--ink);
+        }
+        section h3 {
+            font-family: 'Supreme', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            margin: 26px 0 8px;
+            color: var(--ink);
+        }
+        section p {
+            margin: 8px 0;
+            color: var(--ink);
+        }
+        section p.muted {
+            color: var(--muted);
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0;
+        }
+        ul li {
+            position: relative;
+            padding-left: 22px;
+            margin: 8px 0;
+            color: var(--ink);
+        }
+        ul li::before {
+            content: '·';
+            position: absolute;
+            left: 6px;
+            top: -4px;
+            font-size: 24px;
+            line-height: 1;
+            color: var(--accent);
+        }
+        ul li strong {
+            font-weight: 700;
+        }
+        ul li em {
+            font-style: normal;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            background: var(--soft);
+            padding: 1px 6px;
+            border-radius: 4px;
+        }
+
+        a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+        }
+        a:hover {
+            background: var(--accent-soft);
+        }
+
+        /* ── Sketchy dashed cards ──────────────────────────────── */
+        .card {
+            border: 1.6px dashed var(--line);
+            border-radius: 12px;
+            padding: 20px 22px;
+            background: var(--paper);
+            margin: 20px 0;
+        }
+        .card p { margin: 6px 0; }
+        .card p:first-child { margin-top: 0; }
+        .card p:last-child  { margin-bottom: 0; }
+
+        .contact {
+            margin-top: 48px;
+            border: 1.8px solid var(--line);
+            border-radius: 14px;
+            padding: 24px 26px;
+            background: var(--paper);
+        }
+        .contact .label { margin-bottom: 14px; }
+        .contact h2 {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            font-size: 44px;
+            line-height: 1;
+            margin: 0 0 14px;
+        }
+        .contact-row {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin: 6px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+        .contact-row .key {
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 10px;
+            min-width: 56px;
+        }
+        .contact-row .val { color: var(--ink); }
+        .contact-row .val a {
+            font-family: 'Supreme', sans-serif;
+            font-size: 14px;
+        }
+
+        /* ── Sketch divider ────────────────────────────────────── */
+        .divider {
+            display: block;
+            width: 100%;
+            height: 8px;
+            margin: 40px 0;
+            color: var(--soft);
+        }
+
+        /* ── Footer note ───────────────────────────────────────── */
+        .footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1.4px dashed var(--soft);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: center;
+        }
+        .footer .heart { color: var(--accent); }
+
+        /* ── Mobile ────────────────────────────────────────────── */
+        @media (max-width: 540px) {
+            .page { padding: 40px 20px 64px; }
+            .tagline { font-size: 15px; }
+            section h2 { font-size: 22px; }
+            .contact h2 { font-size: 38px; }
         }
     </style>
 </head>
 <body>
-    <h1>QuoteClip</h1>
-    <p class="tagline">Find the YouTube clip your quote came from. Type a line you remember, get the video and the exact timestamp.</p>
+    <main class="page">
+        <!-- ── Hero ───────────────────────────────────────────── -->
+        <header class="hero">
+            <div class="wordmark-wrap">
+                <h1 class="wordmark">quoteclip</h1>
+                <svg class="wordmark-squiggle" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true">
+                    <path
+                        d="M2 8 Q 16 2, 32 8 T 64 8 T 96 8 T 128 8 T 160 8 T 198 8"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        fill="none"
+                    />
+                </svg>
+            </div>
+            <p class="tagline">find the youtube clip your quote came from. type a line you remember, get the video and the exact timestamp.</p>
+        </header>
 
-    <h2>About</h2>
-    <p>QuoteClip identifies the source of a quote — a movie, TV show, speech, song, or viral video — and finds a YouTube clip where the line is actually spoken. The app uses Google's Gemini and the YouTube Data API to identify candidate videos and verify the audio.</p>
+        <!-- ── About ────────────────────────────────────────── -->
+        <section id="about">
+            <span class="label">about</span>
+            <h2>what this is</h2>
+            <p>QuoteClip identifies the source of a quote — a movie, TV show, speech, song, or viral video — and finds a YouTube clip where the line is actually spoken. The app uses Google's Gemini and the YouTube Data API to identify candidate videos and verify the audio.</p>
+        </section>
 
-    <h2>Privacy Policy</h2>
-    <p class="last-updated">Last updated: May 2, 2026</p>
+        <span class="divider"></span>
 
-    <p>This Privacy Policy explains what data QuoteClip collects and how it is used.</p>
+        <!-- ── Privacy policy ──────────────────────────────── -->
+        <section id="privacy">
+            <span class="label">privacy policy</span>
+            <h2>what we collect, what we don't</h2>
+            <p class="muted">last updated · may 2, 2026</p>
 
-    <h3>Information We Collect</h3>
-    <ul>
-        <li><strong>Anonymous account ID.</strong> When you first open QuoteClip, an anonymous account is created via Firebase Authentication. This lets us store your search history and saved clips across sessions without requiring sign-in. No personal information is associated with this anonymous ID.</li>
-        <li><strong>Sign-in information (optional).</strong> If you choose to sign in with Apple, Google, or email, we store your email address, display name, profile photo URL, and the sign-in providers you've linked. This is used to sync your data across devices.</li>
-        <li><strong>Search history.</strong> The quotes you search for are stored in your account so they can appear as recents in the app. You can disable history recording or delete entries from within the app.</li>
-        <li><strong>Saved items and lists.</strong> Clips you save (and any lists you create) are stored in your account.</li>
-        <li><strong>Search queries sent to Google.</strong> The quotes you search are sent to Google's Gemini API and the YouTube Data API to identify the source and locate clips. These are processed by Google according to <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
-    </ul>
+            <h3>information we collect</h3>
+            <ul>
+                <li><strong>Anonymous account ID.</strong> When you first open QuoteClip, an anonymous account is created via Firebase Authentication so we can store your search history and saved clips across sessions without requiring sign-in. No personal information is associated with this anonymous ID.</li>
+                <li><strong>Sign-in information (optional).</strong> If you choose to sign in with Apple, Google, or email, we store your email address, display name, profile photo URL, and the sign-in providers you've linked. This is used to sync your data across devices.</li>
+                <li><strong>Search history.</strong> The quotes you search for are stored in your account so they can appear as recents in the app. You can disable history recording or delete entries from within the app.</li>
+                <li><strong>Saved items and lists.</strong> Clips you save (and any lists you create) are stored in your account.</li>
+                <li><strong>Search queries sent to Google.</strong> The quotes you search are sent to Google's Gemini API and the YouTube Data API to identify the source and locate clips. These are processed by Google according to <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+            </ul>
 
-    <h3>What We Don't Collect</h3>
-    <ul>
-        <li>We do not collect device identifiers, advertising IDs, or precise location.</li>
-        <li>We do not sell or share your data with third parties for advertising.</li>
-        <li>We do not track your activity outside the app.</li>
-    </ul>
+            <h3>what we don't collect</h3>
+            <ul>
+                <li>We don't collect device identifiers, advertising IDs, or precise location.</li>
+                <li>We don't sell or share your data with third parties for advertising.</li>
+                <li>We don't track your activity outside the app.</li>
+            </ul>
 
-    <h3>Third-Party Services</h3>
-    <p>QuoteClip uses the following Google services:</p>
-    <ul>
-        <li><strong>Firebase</strong> (Authentication, Firestore, Cloud Functions, App Check) — for accounts, data storage, and backend processing.</li>
-        <li><strong>Gemini API</strong> — to identify the source of a quote and verify clips.</li>
-        <li><strong>YouTube Data API Services</strong> — to find candidate videos.</li>
-    </ul>
+            <h3>third-party services</h3>
+            <p>QuoteClip uses the following Google services:</p>
+            <ul>
+                <li><strong>Firebase</strong> — Authentication, Firestore, Cloud Functions, App Check (accounts, data storage, backend processing).</li>
+                <li><strong>Gemini API</strong> — to identify the source of a quote and verify clips.</li>
+                <li><strong>YouTube Data API Services</strong> — to find candidate videos.</li>
+            </ul>
 
-    <h3>YouTube API Services</h3>
-    <p>QuoteClip uses YouTube API Services. By using QuoteClip, you also agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+            <div class="card">
+                <p><strong>YouTube API Services notice.</strong> QuoteClip uses YouTube API Services. By using QuoteClip, you also agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+            </div>
 
-    <h3>Your Rights</h3>
-    <p>You can:</p>
-    <ul>
-        <li>Delete individual saved clips, lists, and search history entries from within the app.</li>
-        <li>Disable search history recording in app settings.</li>
-        <li>Request full account deletion by emailing the address below.</li>
-    </ul>
+            <h3>your rights</h3>
+            <ul>
+                <li>Delete individual saved clips, lists, and search history entries from within the app.</li>
+                <li>Disable search history recording in app settings.</li>
+                <li><strong>Delete your account and all associated data directly from the app.</strong> Open the <em>Profile</em> tab and tap <em>Delete account</em>. This permanently removes your account, saved clips, lists, and search history — the deletion can't be undone.</li>
+                <li>If you can't reach the in-app delete option, you can request account deletion by emailing the address below.</li>
+            </ul>
 
-    <h3>Children's Privacy</h3>
-    <p>QuoteClip is not directed to children under 13 and we do not knowingly collect information from children under 13.</p>
+            <h3>children's privacy</h3>
+            <p>QuoteClip is not directed to children under 13 and we do not knowingly collect information from children under 13.</p>
 
-    <h3>Changes to This Policy</h3>
-    <p>We may update this Privacy Policy from time to time. We will post the new policy on this page and update the "Last updated" date.</p>
+            <h3>changes to this policy</h3>
+            <p>We may update this Privacy Policy from time to time. We'll post the new policy on this page and update the "last updated" date.</p>
+        </section>
 
-    <div class="contact">
-        <h2>Contact & Support</h2>
-        <p>Questions, support requests, bug reports, or account deletion requests:</p>
-        <p><strong>Email:</strong> b3ranck@gmail.com</p>
-        <p><strong>App:</strong> QuoteClip</p>
-    </div>
+        <!-- ── Contact ─────────────────────────────────────── -->
+        <aside class="contact">
+            <span class="label">support &amp; contact</span>
+            <h2>say hi</h2>
+            <p>Questions, support requests, bug reports, or account deletion requests:</p>
+            <div class="contact-row">
+                <span class="key">email</span>
+                <span class="val"><a href="mailto:b3ranck@gmail.com">b3ranck@gmail.com</a></span>
+            </div>
+            <div class="contact-row">
+                <span class="key">app</span>
+                <span class="val">QuoteClip</span>
+            </div>
+        </aside>
+
+        <p class="footer">unofficial fan-made tool · all clip rights belong to their owners <span class="heart">·</span></p>
+    </main>
 </body>
 </html>
