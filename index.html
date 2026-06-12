@@ -249,11 +249,12 @@
             margin-bottom: 18px;
         }
         .yt-badge:hover { background: none; }
-        .yt-badge img { height: 26px; width: auto; display: block; }
-        .yt-logo-on-dark { display: none; }
+        .yt-badge img { height: 30px; width: auto; }
+        .yt-badge .yt-logo-on-light { display: block; }
+        .yt-badge .yt-logo-on-dark  { display: none; }
         @media (prefers-color-scheme: dark) {
-            .yt-logo-on-light { display: none; }
-            .yt-logo-on-dark { display: block; }
+            .yt-badge .yt-logo-on-light { display: none; }
+            .yt-badge .yt-logo-on-dark  { display: block; }
         }
         .footer-links {
             display: flex;
