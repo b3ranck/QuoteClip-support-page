@@ -243,6 +243,34 @@
         }
         .footer .heart { color: var(--accent); }
 
+        /* ── YouTube attribution + legal links ─────────────────── */
+        .yt-badge {
+            display: inline-block;
+            margin-bottom: 18px;
+        }
+        .yt-badge:hover { background: none; }
+        .yt-badge img { height: 26px; width: auto; display: block; }
+        .yt-logo-on-dark { display: none; }
+        @media (prefers-color-scheme: dark) {
+            .yt-logo-on-light { display: none; }
+            .yt-logo-on-dark { display: block; }
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 18px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration-color: var(--accent);
+        }
+        .footer-links .sep { color: var(--soft); }
+
         /* ── Mobile ────────────────────────────────────────────── */
         @media (max-width: 540px) {
             .page { padding: 40px 20px 64px; }
@@ -334,6 +362,65 @@
             <p>We may update this Privacy Policy from time to time. We'll post the new policy on this page and update the "last updated" date.</p>
         </section>
 
+        <span class="divider"></span>
+
+        <!-- ── Terms of Service ────────────────────────────── -->
+        <section id="terms">
+            <span class="label">terms of service</span>
+            <h2>the rules of the road</h2>
+            <p class="muted">effective · june 12, 2026</p>
+
+            <p>These Terms of Service ("Terms") govern your access to and use of the QuoteClip mobile application and related services (the "Service"). By downloading, accessing, or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
+
+            <h3>the service</h3>
+            <p>QuoteClip helps you find the YouTube video and timestamp where a quote was spoken. You provide a line of dialogue (typed or spoken); the Service uses Google's Gemini AI and the YouTube Data API to identify the likely source, locate candidate videos, and return a matching clip played through YouTube's official embedded player. QuoteClip does not download, host, store, or re-upload video content; it surfaces and links to videos that already exist on YouTube, with attribution to the original channel.</p>
+
+            <h3>eligibility</h3>
+            <p>You must be at least 13 years old (or the minimum age of digital consent in your jurisdiction) to use the Service. By using the Service you represent that you meet this requirement.</p>
+
+            <h3>YouTube API Services</h3>
+            <div class="card">
+                <p>The Service uses YouTube API Services. By using QuoteClip, <strong>you also agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a></strong>. Your use of data retrieved through YouTube API Services is also subject to <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>. QuoteClip's own handling of your data is described in our <a href="#privacy">Privacy Policy</a> above.</p>
+                <p>All video content surfaced by the Service remains the property of its respective owners and YouTube. QuoteClip claims no ownership of it and provides it for discovery and playback through YouTube's embedded player only.</p>
+            </div>
+
+            <h3>accounts</h3>
+            <p>You may use the Service as an anonymous guest or by signing in with Apple, Google, or email. You are responsible for activity under your account and for keeping your credentials secure. You may delete your account and all associated data at any time from the <em>Profile</em> tab within the app.</p>
+
+            <h3>subscriptions &amp; billing</h3>
+            <p>QuoteClip offers an optional paid subscription ("Pro") that raises daily search and saving limits. Subscriptions are sold and billed through the Apple App Store or Google Play; payment is charged to your store account at confirmation of purchase. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period, and you can manage or cancel them in your store account settings. Except where required by law, payments are non-refundable; refund requests are handled by Apple or Google under their policies.</p>
+
+            <h3>acceptable use</h3>
+            <p>You agree not to:</p>
+            <ul>
+                <li>use the Service to violate any law or the rights of others;</li>
+                <li>attempt to access, scrape, download, or extract video content other than through the YouTube player provided, or otherwise circumvent YouTube's or Google's technical or contractual restrictions;</li>
+                <li>interfere with, overload, or attempt to gain unauthorized access to the Service, its backend, or associated systems;</li>
+                <li>reverse engineer or misuse the Service or its API integrations.</li>
+            </ul>
+
+            <h3>AI-generated results</h3>
+            <p>Search results are produced with the help of automated AI systems and may be incomplete or inaccurate. QuoteClip identifies likely matches and does not guarantee that any returned clip is the exact or only source of a quote. You are responsible for evaluating results before relying on them.</p>
+
+            <h3>disclaimers</h3>
+            <p>The Service is provided "as is" and "as available," without warranties of any kind, whether express or implied, including merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Service will be uninterrupted, error-free, or that any quote will be successfully identified.</p>
+
+            <h3>limitation of liability</h3>
+            <p>To the maximum extent permitted by law, QuoteClip and its developer will not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of data, revenue, or profits, arising out of or related to your use of the Service. Our total liability for any claim will not exceed the amount you paid for the Service in the twelve months before the claim.</p>
+
+            <h3>termination</h3>
+            <p>You may stop using the Service and delete your account at any time. We may suspend or terminate access if you violate these Terms or to protect the Service, its users, or third parties. Sections that by their nature should survive termination (including ownership, disclaimers, and limitation of liability) will survive.</p>
+
+            <h3>changes to these terms</h3>
+            <p>We may update these Terms from time to time. Material changes will be reflected by updating the "effective" date above and, where appropriate, through notice in the app. Continued use of the Service after changes take effect constitutes acceptance.</p>
+
+            <h3>governing law</h3>
+            <p>These Terms are governed by the laws of the State of Colorado, USA, without regard to its conflict-of-laws rules.</p>
+
+            <h3>contact</h3>
+            <p>Questions about these Terms? Email <a href="mailto:b3ranck@gmail.com">b3ranck@gmail.com</a>.</p>
+        </section>
+
         <!-- ── Contact ─────────────────────────────────────── -->
         <aside class="contact">
             <span class="label">support &amp; contact</span>
@@ -349,7 +436,18 @@
             </div>
         </aside>
 
-        <p class="footer">unofficial fan-made tool · all clip rights belong to their owners <span class="heart">·</span></p>
+        <div class="footer">
+            <a class="yt-badge" href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Developed with YouTube">
+                <img class="yt-logo-on-light" src="developed-with-youtube-dark.png" alt="Developed with YouTube" width="700" height="250">
+                <img class="yt-logo-on-dark" src="developed-with-youtube-light.png" alt="Developed with YouTube" width="700" height="250">
+            </a>
+            <nav class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <span class="sep">·</span>
+                <a href="#terms">Terms of Service</a>
+            </nav>
+            <p style="margin:0;">unofficial fan-made tool · all clip rights belong to their owners <span class="heart">·</span></p>
+        </div>
     </main>
 </body>
 </html>
