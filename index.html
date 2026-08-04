@@ -313,7 +313,7 @@
         <section id="privacy">
             <span class="label">privacy policy</span>
             <h2>what we collect, what we don't</h2>
-            <p class="muted">last updated · june 10, 2026</p>
+            <p class="muted">last updated · august 3, 2026</p>
 
             <h3>information we collect</h3>
             <ul>
@@ -324,24 +324,43 @@
                 <li><strong>Search queries sent to Google's AI.</strong> The quotes you search (and any source you add) are sent to Google's Gemini API — a third-party AI service — and the YouTube Data API to identify the source and locate clips. See <strong>AI processing &amp; your consent</strong> below.</li>
             </ul>
 
+            <h3>information stored on or accessed from your device</h3>
+            <p>QuoteClip stores, accesses, and collects information directly and indirectly on and from your device, and allows the third parties listed below to do the same — including by placing, accessing, or recognizing cookies, local storage, device identifiers, and similar technologies on your device or browser. Specifically:</p>
+            <ul>
+                <li><strong>App preferences and local settings.</strong> Stored in your device's local app storage so the app remembers your choices between launches: your accent colour and light/dark preference, whether you've seen the welcome and feature-tour screens, your AI-processing consent, whether search history recording is on, any pinned or hidden recents, a locked source, your daily-quiz progress, and whether quote-of-the-day notifications are enabled.</li>
+                <li><strong>Authentication session.</strong> Firebase Authentication stores a sign-in token and session identifier on your device so you stay signed in.</li>
+                <li><strong>Anti-abuse device attestation.</strong> Firebase App Check accesses device-integrity signals to confirm requests come from a genuine copy of the app — Apple's App Attest / DeviceCheck on iOS, Google Play Integrity on Android, and reCAPTCHA on the web. <strong>reCAPTCHA sets cookies and reads browser storage</strong> when QuoteClip is used in a browser.</li>
+                <li><strong>Analytics identifier.</strong> Our analytics provider (PostHog) generates and stores a random installation identifier on your device, and may buffer pending events in local storage, so we can measure feature usage. It is not an advertising identifier and is not linked to any identity you haven't given us.</li>
+                <li><strong>Push notification token.</strong> If you enable quote-of-the-day notifications, Firebase Cloud Messaging issues a device-specific push token that we store against your account so we can deliver them. Turning notifications off removes that device's token.</li>
+                <li><strong>Subscription state.</strong> If you purchase QuoteClip Pro, RevenueCat and the Apple App Store / Google Play store purchase and receipt information on your device to validate and restore your subscription.</li>
+                <li><strong>Embedded YouTube player.</strong> Clips play inside an embedded YouTube player. <strong>YouTube and Google may set and read their own cookies and similar storage on your device through that player</strong>, subject to <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> — including where you are not signed in to YouTube. We do not control or have access to that storage.</li>
+            </ul>
+
             <h3>what we don't collect</h3>
             <ul>
-                <li>We don't collect device identifiers, advertising IDs, or precise location.</li>
+                <li>We don't collect advertising identifiers, and we don't use any of the above for advertising or cross-app tracking.</li>
+                <li>We don't collect precise location.</li>
                 <li>We don't sell or share your data with third parties for advertising.</li>
-                <li>We don't track your activity outside the app.</li>
+                <li>We don't track your activity outside the app, other than as described for the embedded YouTube player above.</li>
             </ul>
 
             <h3>third-party services</h3>
-            <p>QuoteClip uses the following Google services:</p>
+            <p>QuoteClip uses the following third-party services, each of which may store or access information on your device as described above:</p>
             <ul>
-                <li><strong>Firebase</strong> — Authentication, Firestore, Cloud Functions, App Check (accounts, data storage, backend processing).</li>
-                <li><strong>Gemini API</strong> — Google's AI model, used to identify the source of a quote and verify clips.</li>
-                <li><strong>YouTube Data API Services</strong> — to find candidate videos.</li>
+                <li><strong>Firebase</strong> (Google) — Authentication, Firestore, Cloud Functions, Cloud Messaging, App Check (accounts, data storage, backend processing, push notifications, anti-abuse).</li>
+                <li><strong>Gemini API</strong> (Google) — Google's AI model, used to identify the source of a quote and verify clips.</li>
+                <li><strong>YouTube Data API Services</strong> (Google) — to find candidate videos, and the embedded YouTube player used to play them.</li>
+                <li><strong>PostHog</strong> — product analytics (feature usage and reliability). Disabled in development builds.</li>
+                <li><strong>RevenueCat</strong>, with the <strong>Apple App Store</strong> and <strong>Google Play</strong> — subscription purchases, validation, and restore.</li>
             </ul>
 
             <div class="card">
-                <p><strong>YouTube API Services notice.</strong> QuoteClip uses YouTube API Services. By using QuoteClip, you also agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+                <p><strong>YouTube API Services notice.</strong> QuoteClip uses YouTube API Services. By using QuoteClip, you also agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>. You can review and revoke QuoteClip's access to your data via the <a href="https://security.google.com/settings/security/permissions">Google security settings page</a>.</p>
             </div>
+
+            <h3>how long we keep YouTube data</h3>
+            <p>Information we retrieve from YouTube API Services about a video — its title, channel name, thumbnail, and duration — is <strong>stored for no longer than 30 calendar days</strong>, after which it is automatically deleted. When you open a saved clip whose stored details have been deleted, QuoteClip re-reads them from YouTube at that moment, so what you see always reflects current YouTube data rather than an old copy.</p>
+            <p>This does not delete the clips you saved: the video you chose, the quote you searched, and your lists are your own records and are kept until you delete them or your account.</p>
 
             <h3>AI processing &amp; your consent</h3>
             <p>To find your clip, the quote you type or speak — and any source you add — is sent to <strong>Google's Gemini API</strong>, a third-party AI service, along with the YouTube Data API. We ask for your explicit consent in the app, on the welcome screen shown before your first search, and only send this data after you agree.</p>
@@ -353,7 +372,7 @@
                 <li>Disable search history recording in app settings.</li>
                 <li><strong>Withdraw consent for AI processing.</strong> Your searches are only sent to Google's Gemini AI when you run a search, so you can stop sharing at any time by simply not searching. You can also delete your stored searches or your entire account, as described here.</li>
                 <li><strong>Delete your account and all associated data directly from the app.</strong> Open the <em>Profile</em> tab and tap <em>Delete account</em>. This permanently removes your account, saved clips, lists, and search history — the deletion can't be undone.</li>
-                <li>If you can't reach the in-app delete option, you can request account deletion by emailing the address below.</li>
+                <li>If you can't reach the in-app delete option, you can request account deletion by emailing the address below. We action deletion requests within 7 calendar days of receiving them.</li>
             </ul>
 
             <h3>children's privacy</h3>
